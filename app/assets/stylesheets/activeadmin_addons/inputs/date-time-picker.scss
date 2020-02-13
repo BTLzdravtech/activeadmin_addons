@@ -3,3 +3,17 @@ input[type=text] {
     width: 110px;
   }
 }
+
+.sidebar_section .filter_range_date_time_picker {
+  textarea {
+    padding-right: 35px;
+    width: 63px;
+    background: #fff asset-url('datepicker-input-icon.png') no-repeat 100% 19px;
+    resize: none;
+    line-height: 1.7em;
+
+    &:last-child {
+      margin-left: 15px;
+    }
+  }
+}

@@ -16,6 +16,7 @@ ActiveAdmin Addons will extend your ActiveAdmin and enable a set of addons you c
 - [Toggleable Booleans](#toggleable-boolean-columns): have switches to toggle values directly at the index
 - [Number Formatting](#number-formatting): format you currencies with ease.
 - [List](#list): show Arrays or Hashes like a list.
+- [Date Time Picker Range Filter](#date-time-picker-range-filter): Filter your results using a date range. Using [Date Time Picker](#date-time-picker-input).
 
 #### Inputs
 
@@ -199,6 +200,16 @@ f.input :updated_at, as: :date_time_picker
 <img src="./docs/images/date-time-picker.gif" height="280" />
 
 [Read more!](docs/date-time-picker.md)
+
+### Date Time Picker Range Filter
+
+To filter based on a range of dates using [Date Time Picker](#date-time-picker-input) you can use `range_date_time_picker`:
+
+```ruby
+filter :date, as: :range_date_time_picker
+```
+
+<img src="./docs/images/filter-date-time-picker.gif" height="280" />
 
 ### Filters
 

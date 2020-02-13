@@ -14,6 +14,8 @@ ActiveAdmin.register Invoice do
                     url: '/admin/admin_users',
                     fields: [:email],
                     display_name: :email
+  filter :created_at, as: :range_date_time_picker
+  filter :updated_at
 
   index do
     selectable_column
