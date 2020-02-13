@@ -34,6 +34,7 @@ var initializer = function() {
           dataType: 'json',
           delay: 250,
           cache: true,
+          headers : { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
           data: function(params) {
             var textQuery = { m: 'or' };
             fields.forEach(function(field) {
