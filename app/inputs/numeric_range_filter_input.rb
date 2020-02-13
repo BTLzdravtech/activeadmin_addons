@@ -21,7 +21,7 @@ class NumericRangeFilterInput < ActiveAdminAddons::InputBase
       type: "number",
       step: "any",
       value: @object.public_send(input_name),
-      placeholder: is_gt ? "min" : "max"
+      placeholder: is_gt ? @options[:min] || "min" : @options[:max] || "max"
     }
   end
 end
