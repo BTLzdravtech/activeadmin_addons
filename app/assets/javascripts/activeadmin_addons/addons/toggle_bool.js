@@ -20,9 +20,8 @@ var initializer = function() {
       headers : { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
       error: function(data) {
         var errorMsg = 'Error: Update Unsuccessful';
-        var response = JSON.parse(data);
-        if (typeof (response.errors) !== "undefined") {
-          errorMsg = response.errors[Object.keys(response.errors)[0]][0];
+        if (typeof (data.responseJSON.errors) !== "undefined") {
+          errorMsg = data.responseJSON.errors[Object.keys(data.responseJSON.errors)[0]][0];
         }
         alert(errorMsg);
       },
