@@ -18,8 +18,12 @@ var initializer = function() {
       data: data,
       dataType: 'json',
       headers : { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-      error: function() {
+      error: function(data) {
         var errorMsg = 'Error: Update Unsuccessful';
+        var response = JSON.parse(data);
+        if (typeof (response.errors) !== "undefined") {
+          errorMsg = response.errors[Object.keys(response.errors)[0]][0];
+        }
         alert(errorMsg);
       },
       success: function() {
