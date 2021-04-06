@@ -69,9 +69,12 @@ var initializer = function() {
         data: data,
         dataType: 'json',
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        error: function() {
+        error: function(data) {
           var errorMsg = 'Error: Update Unsuccessful';
-          console.log(errorMsg);
+          if (typeof (data.responseJSON.errors) !== "undefined") {
+            errorMsg = data.responseJSON.errors[Object.keys(data.responseJSON.errors)[0]][0];
+          }
+          alert(errorMsg);
         },
         success: function() {
           statusTag.text(newText);
