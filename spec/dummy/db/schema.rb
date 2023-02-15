@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_28_122115) do
+ActiveRecord::Schema.define(version: 2022_06_17_213244) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2018_02_28_122115) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.datetime "legal_date"
+    t.date "legal_date"
     t.string "number"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 2018_02_28_122115) do
     t.string "aasm_state"
     t.boolean "active", default: true
     t.string "shipping_status"
+    t.text "picture_data"
+    t.text "description"
     t.index ["category_id"], name: "index_invoices_on_category_id"
     t.index ["city_id"], name: "index_invoices_on_city_id"
   end

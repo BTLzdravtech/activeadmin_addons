@@ -1,6 +1,6 @@
 ActiveAdmin.register Invoice do
-  permit_params :legal_date, :number, :paid, :state, :attachment, :photo, :category_id,
-    :city_id, :amount, :color, :updated_at, :active, item_ids: [], other_item_ids: []
+  permit_params :legal_date, :number, :paid, :state, :attachment, :photo, :category_id, :city_id,
+    :amount, :color, :updated_at, :picture, :active, :description, item_ids: [], other_item_ids: []
 
   filter :id, as: :numeric_range_filter
 
@@ -9,15 +9,20 @@ ActiveAdmin.register Invoice do
                        fields: [:name],
                        minimum_input_length: 0
 
+  filter :created_at, as: :date_time_picker_filter
+
   index do
     selectable_column
     id_column
     tag_column :state, interactive: true
     bool_column :paid
     image_column :photo, style: :thumb
+    image_column :picture, style: :jpg_small
     attachment_column :attachment
     number_column :amount, as: :currency, unit: "$", separator: ","
     toggle_bool_column :active
+    markdown_column :description
+    column :created_at
     actions
   end
 
@@ -32,10 +37,16 @@ ActiveAdmin.register Invoice do
       list_row :details, localize: true
       image_row("Mi foto", :photo, style: :big, &:photo)
       attachment_row("My doc", :attachment, label: 'Download file', truncate: false, &:attachment)
+      image_row("Mi picture", :picture, image_options: { width: 100 }, &:picture)
       row :legal_date
       number_row("Monto", :amount, as: :human, &:amount)
       row :city
+      markdown_row(:description)
       bool_row :active
+    end
+
+    panel "Formtastic form" do
+      render partial: "formtastic_form"
     end
   end
 
@@ -76,7 +87,13 @@ ActiveAdmin.register Invoice do
 
       f.input :attachment
 
+      f.input :description
+
+      f.input :legal_date
+
       f.input :photo
+
+      f.input :picture, as: :file
 
       f.input :color, as: :color_picker,
                       palette: Invoice.colors

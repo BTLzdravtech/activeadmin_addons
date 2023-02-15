@@ -4,7 +4,39 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Unreleased
 
+### 1.9.0
+
+##### Changed
+
+* Select2: get input AR model from object when possible. It's not possible working with virtual attributes [#369](https://github.com/platanus/activeadmin_addons/pull/369)
+##### Fixed
+
+* Nested select: get association class from reflect_on_association AR method [#369](https://github.com/platanus/activeadmin_addons/pull/369)
+* Datepicker options not overriding default options properly [#368](https://github.com/platanus/activeadmin_addons/pull/368)
+* Invalid default datepicker type for pure Formtastic forms [#367](https://github.com/platanus/activeadmin_addons/pull/367)
+* Tag builder generating wrong path with nested resources. [#383](https://github.com/platanus/activeadmin_addons/pull/383)
+
+### 1.8.3
+
+##### Fixed
+
+* `tags` option not working with `active_admin_form_for` [#364](https://github.com/platanus/activeadmin_addons/pull/364)
+* Changed `DateRangeInput#input_html_options` override based on `input_html_options_for` existence [#366](https://github.com/platanus/activeadmin_addons/pull/366)
+
+### 1.8.2
+
+##### Fixed
+* Removes vendor directory from build to reduce gem size
+
+### 1.8.0 and 1.8.1
+
+Versions 1.8.0 and 1.8.1 were yanked by what was described in version 1.8.2. Sorry for the inconvenience.
+Related issues:
+- https://github.com/platanus/activeadmin_addons/issues/357
+- https://github.com/platanus/activeadmin_addons/issues/362
+
 ##### Added
+* Added date time picker filter [#333](https://github.com/platanus/activeadmin_addons/pull/333)
 * Added filters option in nested selects [#301](https://github.com/platanus/activeadmin_addons/pull/301)
 * Date range filters and date picker inputs now has `autocomplete: 'off'` by default [#320](https://github.com/platanus/activeadmin_addons/pull/320)
 * Added `tags` option to default select2 inputs [#322](https://github.com/platanus/activeadmin_addons/pull/322)
@@ -24,6 +56,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Remove unsupported `select2-rails` gem, vendor files directly [#264](https://github.com/platanus/activeadmin_addons/pull/264) and bump select2 to 4.0.13 [#296](https://github.com/platanus/activeadmin_addons/pull/296)
 * Updated `require_all` gem to 2.0 [#313](https://github.com/platanus/activeadmin_addons/pull/313)
 * Dependabot bumps for devise, rack, loofah
+* Release with circle ci instead of travis
 
 ### 1.7.1
 
