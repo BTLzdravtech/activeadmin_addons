@@ -11,7 +11,7 @@ class SelectedListInput < ActiveAdminAddons::InputBase
     load_data_attr(:url, default: url_from_method)
     load_data_attr(:response_root, default: tableize_method)
     load_data_attr(:fields, default: ["name"], formatter: :to_json)
-    load_data_attr(:predicate, default: "contains")
+    load_data_attr(:predicate, default: "cont")
     load_data_attr(:display_name, default: "name")
     load_data_attr(:minimum_input_length, default: 1)
     load_data_attr(:width, default: "100%")
@@ -26,7 +26,6 @@ class SelectedListInput < ActiveAdminAddons::InputBase
 
   def render_control_wrapper
     template.content_tag(:div, class: "selected-list-container") do
-      template.content_tag(label_html)
       template.concat(render_items_list)
       template.concat(builder.select(build_virtual_attr, [], {}, input_html_options))
     end
