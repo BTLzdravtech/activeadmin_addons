@@ -20,7 +20,8 @@ class DateTimePickerFilterInput < ActiveAdminAddons::InputBase
 
     input_html_options.merge(
       as: :date_time_picker,
-      placeholder: is_gt ? "min" : "max"
+      placeholder: is_gt ? "min" : "max",
+      label: false,
     )
   end
 end
